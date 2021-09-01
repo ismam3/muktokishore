@@ -1,12 +1,12 @@
 body {
   background: #7C7C7C;
   min-height: 200vh;
-  width:100vw
+  width:100vw;
   overflow-x: hidden;
   margin:0;
   word-wrap:break-word;
 }
-p {
+p{
   font-size: 2em;
 }
 .sectionD {
@@ -39,34 +39,17 @@ p {
   height: 100%;
 }
 .aboutus {
-  position: absolute;
   margin-top: 100vh;
   width:98vw;
   padding-right:5px;
-}
-/* .contents{
-    width: 90%;
-    margin-left: 5%;
-    background: #F4F0DB;
-    border-top: 3px inset whitesmoke;
-    border-left: 3px inset whitesmoke;
-    border-bottom: 2px solid whitesmoke;
-    border-right: 2px solid whitesmoke;
-    margin-top: 150px;
-  } */
-.contents {
-  color: whitesmoke;
-  font-family: "Courier New", monospace;
-  position: absolute;
-  top: 150vh;
-  overflow-x: hidden;
-  width:97vw;
-  padding-left:3px;
+  padding-right: 5px;
 }
 .programDiv {
   display: grid;
   grid-template-columns: 2fr 3fr;
   margin-bottom: 70px;
+  padding-right: 25px;
+  padding-right: 20px;
 }
 .tnd {
   grid-template-columns: 3fr 2fr;
@@ -98,17 +81,18 @@ input[type="submit"] {
 }
 
 .footer {
-  /* position: absolute;
-  top: calc(400vh + 800px); */
-  margin-top: 500px;
   padding: 10px;
-  width: calc(100vw);
+  width: calc(100vw - 20px);
   min-height: 150px;
   background: black;
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: repeat(auto-fit,minmax(320px, 3fr));
   font-family: 'Times New Roman', Times, serif;
   word-wrap:break-word;
+}
+.footer .footer_speech{
+  width: calc(100% - 20px);
+  padding: 10px;
 }
 
 .footer span {
@@ -130,57 +114,28 @@ input[type="submit"] {
   color: wheat;
   text-decoration: none;
 }
-.member-container{
-  position: relative;
-  width: 320px;
-  height: 220px;
-  margin: 150px auto;
-  perspective: 1000px;
+.moderators{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-rows: repeat(1fr, 6);
+  padding: 50px;
+  align-items: center;
+  grid-gap: 30px;
 }
-.team_carousel{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform:rotateY(-360deg) translateZ(-400px);
-  animation: animate 40s steps(1000, end) infinite;
-}
-.members{
-  position: absolute;
-  width: 150px;
+.moderators .members{
+  width: 200px;
   height: 200px;
+  align-items: center;
+}
+.moderators .members img{
+  width: 100px;
+  height: 100px;
 }
 .members p{
   font-size: 18px;
 }
 .members p a{
   color: blueviolet;
-}
-.team_cgd{
-  position: relative;
-  margin-top: 200px;
-}
-.members img{
-  width: 100%;
-  height: 100%;
-}
-.members.member1{
-  transform: rotateY(0) translateZ(400px);
-}
-.members.member2{
-  transform: rotateY(60deg) translateZ(400px);
-}
-.members.member3{
-  transform: rotateY(120deg) translateZ(400px);
-}
-.members.member4{
-  transform: rotateY(180deg) translateZ(400px);
-}
-.members.member5{
-  transform: rotateY(240deg) translateZ(400px);
-}
-.members.member6{
-  transform: rotateY(300deg) translateZ(400px);
 }
 @keyframes animate{
   from{
@@ -192,12 +147,6 @@ input[type="submit"] {
 }
 
 @media only screen and (max-width: 729px) {
-  /* .aboutus{
-      margin-top: 150vh;
-    } */
-  .contents {
-    margin-top: 180px;
-  }
   p {
     font-size: 1em;
   }
@@ -205,9 +154,6 @@ input[type="submit"] {
 @media only screen and (max-width: 320px) {
   .aboutus {
     margin-top: 100vh;
-  }
-  .contents {
-    margin-top: 160px;
   }
   .footer {
     width: 100vw;
