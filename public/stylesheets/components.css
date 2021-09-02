@@ -1,0 +1,91 @@
+/* styles for header */
+body{
+    margin: 0;
+    padding: 0;
+}
+.headerDiv{
+    width: calc(100vw - 20px);
+    height: 70px;
+    background: darkblue;
+    padding: 10px;
+}
+.headerDiv img{
+    width: 120px;
+    height: 70px;
+}
+.desktopNav{
+    display: inline;
+    margin-top: 22px;
+    float: right;
+}
+.desktopNav a{
+    margin-right: 15px;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+}
+.desktopNav a:hover{
+    color: yellow;
+}
+.mobileNav{
+    display: none;
+}
+@media (max-width:425px){
+    .desktopNav{
+        display: none;
+    }
+    .mobileNav{
+        display: inline;
+        float: right;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        margin-top: 10px;
+    }
+    .mobileNav .navButton{
+        transition: 0.5s;
+    }
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    .change .bar1{
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }  
+    .change .bar2{
+        opacity: 0;
+    }
+    .change .bar3{
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+    #navsection{
+        position: absolute;
+        width: 100vw;
+        height: calc(100vh - 90px);
+        top: 90px;
+        left: 0;
+        background: darkblue;
+        display: none;
+    }
+    #navsection ul{
+        list-style: none;
+        text-align: center;
+    }
+    #navsection ul li{
+        margin-bottom: 12px;
+    }
+    #navsection ul li a{
+        color: whitesmoke;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 36px;
+    }
+    #navsection ul li a:hover{
+        color: yellow;
+    }
+}

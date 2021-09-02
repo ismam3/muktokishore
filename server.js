@@ -7,6 +7,7 @@ const path = require("path");
 const app = express();
 
 app.use("/static",express.static(__dirname + "/public"));
+app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -17,6 +18,10 @@ app.get("/",(req, res)=>{
 
 app.get("/joinUs",(req, res)=>{
     res.sendFile(__dirname + "/joinUs.html");
+});
+
+app.get("/test",(req, res)=>{
+    res.render("pages/tests")
 });
 
 
