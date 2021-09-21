@@ -90,3 +90,43 @@ body{
         color: yellow;
     }
 }
+
+/* styles for footer */
+.footer {
+    padding: 10px;
+    width: calc(100vw - 20px);
+    min-height: 150px;
+    background: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px, 3fr));
+    font-family: 'Times New Roman', Times, serif;
+    word-wrap:break-word;
+  }
+  .footer .footer_speech{
+    width: calc(100% - 40px);
+    padding: 10px;
+  }
+  
+  .footer span {
+    color: whitesmoke;
+    font-size: 22px;
+  }
+  
+  .footer p {
+    color: white;
+    font-size: 12px;
+  }
+  
+  .footer img {
+    width: 70px;
+  }
+  
+  .footer a{
+    font-size: 12px;
+    color: wheat;
+    text-decoration: none;
+  }
+.footer .sitemap{
+    border-left:2px solid wheat;
+    width: calc(100% - 20px);
+}
