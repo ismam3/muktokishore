@@ -1,6 +1,17 @@
+@import url('https://fonts.maateen.me/charu-chandan-3d/font.css');
+@import url('https://fonts.maateen.me/mukti/font.css');
 body{
     margin: 0;
     padding: 0;
-    background: #7C7C7C;
 }
 /* styles for about us page */
+.main_div{
+    width: calc(100% - 30px);
+    height: calc(100vh - 90px);
+    padding: 15px;
+    font-family: 'CharuChandan3D', sans-serif;
+}
+.main_div p{
+    color: black;
+    font-family: 'Mukti', sans-serif;
+}

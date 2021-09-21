@@ -23,6 +23,7 @@ body{
     font-weight: 900;
     color: white;
     text-decoration: none;
+    transition: 0.5;
 }
 .desktopNav a:hover{
     color: yellow;

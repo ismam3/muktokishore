@@ -2,10 +2,10 @@
     <img src="/static/logo/white_logo.png">
     <div class="desktopNav">
         <a href="/">Home</a>
-        <a href="/aboout-us">About Us</a>
-        <a href="/team">Team</a>
-        <a href="/programs">Programs</a>
-        <a href="/contact">Contact</a>
+        <a <%if(active==="about"){%> style="display:none"<%}%> href="/aboout-us">About Us</a>
+        <a <%if(active==="team"){%> style="display:none"<%}%> href="/team">Team</a>
+        <a <%if(active==="programs"){%> style="display:none"<%}%> href="/programs">Programs</a>
+        <a <%if(active==="contact"){%> style="display:none"<%}%> href="/contact">Contact</a>
     </div>
     <div class="mobileNav">
         <div id="navButtonOpen" class="navButton" onclick="mobileNavOpen(this)">
@@ -19,16 +19,16 @@
                     <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="/aboout-us">About Us</a>
+                    <a <%if(active==="about"){%> style="display:none"<%}%> href="/aboout-us">About Us</a>
                 </li>
                 <li>
-                    <a href="/team">Team</a>
+                    <a <%if(active==="team"){%> style="display:none"<%}%> href="/team">Team</a>
                 </li>
                 <li>
-                    <a href="/programs">Programs</a>
+                    <a <%if(active==="programs"){%> style="display:none"<%}%> href="/programs">Programs</a>
                 </li>
                 <li>
-                    <a href="/contact">Contact</a>
+                    <a <%if(active==="contact"){%> style="display:none"<%}%> href="/contact">Contact</a>
                 </li>
             </ul>
         </div>

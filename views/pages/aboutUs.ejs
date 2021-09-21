@@ -2,12 +2,23 @@
     <head>
         <title>Muktokishore - About us</title>
         <link rel="stylesheet" href="/static/stylesheets/components.css">
+        <link rel="stylesheet" href="/static/stylesheets/pages.css">
+        <link href="https://fonts.maateen.me/charu-chandan-3d/font.css" rel="stylesheet">
+        <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Muktokishore|Here we are describing about ourself">
         <meta name="keywords" content="Muktokishore, Teenage welfare, Bangladeshi magazine">
     </head>
     <body>
-        <%- include("../components/header")  -%>
-        <script src="/static/scripts/script.js"></script>
+        <%- include("../components/header", {active: "about"});  -%>
+        <div class="main_div">
+            <h1>আমাদের সম্পর্কে</h1>
+            <p><b>মুক্তকিশোর</b> একটি ত্রিমাসিক কিশোর বিষয়ক ম্যাগাজিন।<br><br>
+            কিশোর-কিশোরীদের সৃজনশীলতা ও মুক্তচিন্তা বিকাশের লক্ষ্যে আমরা দেশব্যাপী ম্যাগাজিন প্রকাশ করছি। ডিজিটাল মাধ্যম ব্যবহার করে আমরা সহস্রাধিক কিশোর-কিশোরীর সৃজনশীল প্রতিভা বিকাশে সহায়ক ভুমিকা পালন করে যাচ্ছি।
+            <br><br>
+            আমরা ইতিমধ্যেই <a href="https://www.facebook.com/groups/1067317797015738">ফেসবুক গ্রুপে</a> ব্যাতিক্রমধর্মী Photography contest পরিচালনা করছি যেখানে অর্ধসহস্রাধিক কিশোর-কিশোরী অংশগ্রহণ করেছে। 
+            </p>
+        </div>
+        <!-- <script src="/static/scripts/script.js"></script> -->
     </body>
 </html>
