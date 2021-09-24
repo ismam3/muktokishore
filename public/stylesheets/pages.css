@@ -1,17 +1,56 @@
 @import url('https://fonts.maateen.me/charu-chandan-3d/font.css');
 @import url('https://fonts.maateen.me/mukti/font.css');
+@import url('https://fonts.googleapis.com/css?family=Galada');
 body{
     margin: 0;
     padding: 0;
 }
+body::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
 /* styles for about us page */
 .main_div{
     width: calc(100% - 30px);
-    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
     padding: 15px;
     font-family: 'CharuChandan3D', sans-serif;
 }
 .main_div p{
     color: black;
     font-family: 'Mukti', sans-serif;
+}
+/* styles for representative form */
+#representative{
+    font-family: Galada;
+}
+#representative input, #representative textarea, #representative select{
+    margin-bottom: 27px;
+    width: 425px;
+    outline: none;
+}
+#representative input:focus{
+    border-top: 0;
+    border-right:0;
+    border-left: 0;
+    border-bottom: 1px solid darkblue;
+}
+#representative input[type="checkbox"]{
+    width: 16px;
+    height: 16px;
+}
+#representative input[type="submit"]{
+    background: darkblue;
+    font-weight: 900;
+    color: white;
+}
+@media only screen and (max-width: 425px){
+    #representative input, #representative textarea, #representative select{
+        width: 100%;
+    }
 }

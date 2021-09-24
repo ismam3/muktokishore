@@ -1,3 +1,6 @@
+html{
+  width: 100vw;
+}
 body {
   background: #7C7C7C;
   min-height: 200vh;
@@ -5,6 +8,17 @@ body {
   overflow-x: hidden;
   margin:0;
   word-wrap:break-word;
+  margin: 0;
+  padding:0;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 p{
   font-size: 2em;
@@ -37,6 +51,10 @@ p{
   left: 0;
   width: 100%;
   height: 100%;
+}
+.main_div{
+  padding: 20px;
+  width: calc(100% - 40px);
 }
 .aboutus {
   margin-top: 100vh;
@@ -88,7 +106,6 @@ input[type="submit"] {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(320px, 3fr));
   font-family: 'Times New Roman', Times, serif;
-  word-wrap:break-word;
 }
 .footer .footer_speech{
   width: calc(100% - 20px);

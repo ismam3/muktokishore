@@ -15,11 +15,12 @@ app.use(bodyParser.json());
 // connecting to database
 require("./database/connection");
 
-const adminRouter = require("./admin_route")
+const adminRouter = require("./routers/admin_route")
 app.use("/admin", adminRouter);
 
 // importing schemas
 const Teacher = require("./models/teacherSchema");
+const ApplicantRepresentativeSchema = require("./models/applicantRepresentativeSchema");
 
 
 //creating image uploading middleware
@@ -47,6 +48,15 @@ app.get("/joinUs",(req, res)=>{
 app.get("/aboutUs", (req, res)=>{
     res.render("pages/aboutUs");
 })
+app.get("/programs",(req, res)=>{
+    res.render("pages/program");
+})
+app.get("/contact",(req,res)=>{
+    res.render("pages/contact");
+})
+app.get("/representativeForm",(req, res)=>{
+    res.render("pages/representativeForm")
+})
 
 app.get("/test",(req, res)=>{
     res.render("pages/tests")
@@ -57,19 +67,46 @@ app.get("/admin/teacher",(req,res)=>{
 
 // handling post request
 app.post("/admin/addTeacher", upload.single("image"),(req, res)=>{
-    let teacherName = req.body.name;
-    let email = req.body.email;
-    let teacherPhone = req.body.phone;
-    let birthdate = req.body.birthdate;
-    let permanentAddress = req.body.permanentAddress;
-    let presentAddress = req.body.presentAddress;
-    let nid = req.body.nid;
-    let institute = req.body.institute;
-    let post = req.body.post;
-    let image = req.file;
+    var email = req.body.email;
+    var teacherName = req.body.name;
+    var teacherPhone = req.body.phone;
+    var birthdate = req.body.birthdate;
+    var permanentAddress = req.body.permanentAddress;
+    var presentAddress = req.body.presentAddress;
+    var nid = req.body.nid;
+    var institute = req.body.institute;
+    var post = req.body.post;
+    var image = req.file;
 
     const teacher = new Teacher({name:teacherName, email, phone:teacherPhone, birthdate, permanentAddress, presentAddress, nid, institute, post, image})
     Teacher.findOne({email:email}).then((existed)=>{
+        if(existed){
+            res.status(422)
+        }
+        else{
+            teacher.save().then(()=>{
+                res.send("Added")
+            }).catch((error)=>{
+                console.log(error)
+            })
+        }
+    })
+})
+
+app.post("/representativeApplicant", upload.single("image"),(req, res)=>{
+    var applicantName = req.body.name;
+    var email = req.body.email;
+    var applicantPhone = req.body.phone;
+    var birthdate = req.body.birthdate;
+    var permanentAddress = req.body.permanentAddress;
+    var presentAddress = req.body.presentAddress;
+    var nid = req.body.nid;
+    var institute = req.body.institute;
+    var post = req.body.post;
+    var image = req.file;
+
+    const teacher = new ApplicantRepresentativeSchema({name:applicantName, email, phone:applicantPhone, birthdate, permanentAddress, presentAddress, nid, institute, post, image})
+    ApplicantRepresentativeSchema.findOne({email:email}).then((existed)=>{
         if(existed){
             res.status(422)
         }

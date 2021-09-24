@@ -16,3 +16,21 @@ function mobileNavOpen(x){
         document.getElementById("navSection").style.display = "none";
     }
 }
+if(document.querySelector("#nid_checker").checked === true){
+    document.querySelector("#nid_div").style.display= "inline-block";
+    document.querySelector("#bc_div").style.display= "none";
+}
+else{
+    document.querySelector("#nid_div").style.display= "none";
+    document.querySelector("#bc_div").style.display= "inline-block";
+}
+document.querySelector("#nid_checker").addEventListener("click",()=>{
+    if(document.querySelector("#nid_checker").checked === true){
+        document.querySelector("#nid_div").style.display= "inline-block";
+        document.querySelector("#bc_div").style.display= "none";
+    }
+    else{
+        document.querySelector("#nid_div").style.display= "none";
+        document.querySelector("#bc_div").style.display= "inline-block";
+    }
+})
