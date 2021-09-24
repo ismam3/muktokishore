@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
+const session = require("express-session");
 
 
 const app = express();
@@ -12,6 +13,12 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(session({
+    secret:"mukto",
+    resave:true,
+    saveUninitialized:true
+}))
+
 // connecting to database
 require("./database/connection");
 
@@ -21,6 +28,7 @@ app.use("/admin", adminRouter);
 // importing schemas
 const Teacher = require("./models/teacherSchema");
 const ApplicantRepresentativeSchema = require("./models/applicantRepresentativeSchema");
+const { Session } = require("express-session");
 
 
 //creating image uploading middleware

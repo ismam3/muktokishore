@@ -14,10 +14,11 @@
                     <img src="/static/logo/white_logo.png">
                     <span>Admin</span>
                 </div>
-                <form>
+                <form method="POST" action="/admin">
+                    <span style="color:red;font-size: 11px;"><%= issue %></span>
                     <div class="form_control">
                         <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="email" name="email" placeholder="Enter admin email">
+                        <input type="text" name="id" placeholder="Enter admin id">
                     </div>
                     <div class="form_control">
                         <i class="fa fa-key" aria-hidden="true"></i>
