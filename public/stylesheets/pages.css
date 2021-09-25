@@ -72,3 +72,9 @@ body{
     height: 100%;
     border-radius: 50%;
 }
+
+/* styles for representativeDetails */
+.representative_image{
+    width: 150px;
+    height: 150px;
+}

@@ -16,13 +16,13 @@
             <h3>তাহলে সঠিক তথ্য প্রদানপূর্বক নিচের ফর্মটি পূরণ করুন</h3>
             <form id="representative" method="post" action="/representativeApplicant" encType="multipart/form-data">
                 <label for="name">নাম:</label><br>
-                <input name="name" type="text"><br>
+                <input required name="name" type="text"><br>
                 <label for="email">ই-মেইল:</label><br>
-                <input type="email" name="email"><br>
+                <input required type="email" name="email"><br>
                 <label for="phone">ফোন:</label><br>
-                <input type="tel" name="phone"><br>
+                <input required type="tel" name="phone"><br>
                 <label for="birthdate">জন্মতারিখ:</label><br>
-                <input type="date" name="birthdate"><br>
+                <input required type="date" name="birthdate"><br>
                 <label for="nid_check"><input id="nid_checker" type="checkbox">আপনার কি জাতীয় পরিচয় পত্র আছে?</label><br>
                 <div id="bc_div">
                     <label for="birthCertificate">জন্ম নিবন্ধন নং:</label><br>
@@ -33,19 +33,19 @@
                     <input type="number" name="nid"><br>
                 </div><br>
                 <label for="presentAddress">বর্তমান ঠিকানা:</label><br>
-                <textarea name="presentAddress" cols="30" rows="5"></textarea><br>
+                <textarea required name="presentAddress" cols="30" rows="5"></textarea><br>
                 <label for="permanentAddress">স্থায়ী ঠিকানা:</label><br>
-                <textarea name="permanentAddress" cols="30" rows="5"></textarea><br>
+                <textarea required name="permanentAddress" cols="30" rows="5"></textarea><br>
                 <label for="institution">প্রতিষ্ঠান:</label><br>
-                <input type="text" name="institute"><br>
+                <input required type="text" name="institute"><br>
                 <label for="post">পদ:</label><br>
-                <select name="post">
+                <select required name="post">
                     <option value="Teacher">শিক্ষক</option>
                     <option value="Student">শিক্ষার্থী</option>
-                </select>
+                </select><br>
                 <label for="image">সদ্য তোলা ছবি</label>
-                <input type="file" name="image">
-
+                <input required type="file" name="image">
+                <br>
                 <input type="submit" value="সাবমিট">
             </form>
         </div>

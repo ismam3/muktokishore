@@ -25,13 +25,25 @@ router.route("/").get((req, res)=>{
 })
 
 router.route("/representative_applicants").get((req, res)=>{
-    let applicants_array = []
-    ApplicantSchema.find({},(err, applicants)=>{
-        res.render("adminPages/representatives", {data:applicants})
-    })
+    if(req.session.adminAuthenticated===undefined||req.session.adminAuthenticated===null||req.session.adminAuthenticated===""||req.session.adminAuthenticated===false){
+        res.render("adminPages/login",{issue:"Please Login first"});
+    }
+    else{
+        ApplicantSchema.find({},(err, applicants)=>{
+            res.render("adminPages/representatives", {data:applicants})
+        })
+    }
 })
-router.route("/name").get((req, res)=>{
-    res.send(req.session.name);
+
+router.route("/representative/:email").get((req, res)=>{
+    if(req.session.adminAuthenticated===undefined||req.session.adminAuthenticated===null||req.session.adminAuthenticated===""||req.session.adminAuthenticated===false){
+        res.render("adminPages/login",{issue:"Please Login first"});
+    }
+    else{
+        ApplicantSchema.find({email:req.params.email},(err, representative)=>{
+            res.render("adminPages/representativeDetails",{data:representative})
+        })
+    }
 })
 
 module.exports = router;

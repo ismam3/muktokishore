@@ -27,7 +27,7 @@ app.use("/admin", adminRouter);
 
 // importing schemas
 const Teacher = require("./models/teacherSchema");
-const ApplicantRepresentativeSchema = require("./models/applicantRepresentativeSchema");
+const ApplicantSchema = require("./models/applicantRepresentativeSchema");
 const { Session } = require("express-session");
 
 
@@ -69,9 +69,10 @@ app.get("/representativeForm",(req, res)=>{
 app.get("/test",(req, res)=>{
     res.render("pages/tests")
 });
-app.get("/admin/teacher",(req,res)=>{
-    res.render("adminPages/addTeacherForm")
-})
+
+app.use(function(req, res, next) {
+    res.status(404).render("pages/404");
+});
 
 // handling post request
 app.post("/admin/addTeacher", upload.single("image"),(req, res)=>{
@@ -116,7 +117,7 @@ app.post("/representativeApplicant", upload.single("image"),(req, res)=>{
     const teacher = new ApplicantRepresentativeSchema({name:applicantName, email, phone:applicantPhone, birthdate, permanentAddress, presentAddress, nid, institute, post, image})
     ApplicantRepresentativeSchema.findOne({email:email}).then((existed)=>{
         if(existed){
-            res.status(422)
+            res.status(422).send("Oppss...Sorry You have tried with an email which is already used!!<a href='/representativeApplicant'>Try again</a>")
         }
         else{
             teacher.save().then(()=>{
