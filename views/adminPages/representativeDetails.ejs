@@ -2,6 +2,7 @@
     <head>
         <title><%= data[0].name %>||Muktokishore</title>
         <link rel="stylesheet" href="/static/stylesheets/components.css">
+        <link rel="stylesheet" href="/static/stylesheets/admin/style.css">
         <link rel="stylesheet" href="/static/stylesheets/pages.css">
         <link href="https://fonts.maateen.me/charu-chandan-3d/font.css" rel="stylesheet">
         <link href="https://fonts.maateen.me/mukti/font.css" rel="stylesheet">
@@ -15,15 +16,20 @@
             <% data.forEach(element => { %>
                 <img class="representative_image" src=<%= "data:image/jpeg;base64," + element.image.buffer.toString("base64") %>>
                 <h1><%= element.name %></h1>
-                <h2><%= element.post %></h2>
-                <h3><%= element.institute %></h3>
-                <h4>Contacts-</h4>
-                <p>
-                    <b>Phone:<%= element.phone %></b><br>
-                    <b>Email:</b><%= element.email %><br>
+                <div>
+                    <p>
+                        <%= element.post %>,<br>
+                        <%= element.institute %>
+                    </p>
+                </div>
+                <p style="margin-top: 17px;margin-bottom: 17px;">
+                    <span>Contacts-</span><br>
+                    <b>Phone:</b><a href='<%= "tel:" + element.phone %>'><%= element.phone %></a><br>
+                    <b>Email:</b><a href='<%= "mailto:" + element.email %>'><%= element.email %></a><br>
                     <b>Present Address:</b><%= element.presentAddress %><br>
                     <b>Present Address:</b><%= element.permanentAddress %><br>
                 </p>
+                <span class="addButton"><a href='<%= "/admin/addRepresentative/" + element._id %>'>Add to team</a></span>
              <% }); %>
         </div>
         <%- include("../components/footer");  -%>

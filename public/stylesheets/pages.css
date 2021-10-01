@@ -21,6 +21,9 @@ body{
     padding: 15px;
     font-family: 'CharuChandan3D', sans-serif;
 }
+.main_div a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .main_div p{
     color: black;
     font-family: 'Mukti', sans-serif;

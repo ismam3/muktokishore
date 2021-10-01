@@ -22,11 +22,11 @@ app.use(session({
 // connecting to database
 require("./database/connection");
 
-const adminRouter = require("./routers/admin_route")
+const adminRouter = require("./routers/adminRoute")
 app.use("/admin", adminRouter);
 
 // importing schemas
-const Teacher = require("./models/teacherSchema");
+const Representative = require("./models/representativeSchema");
 const ApplicantSchema = require("./models/applicantRepresentativeSchema");
 const { Session } = require("express-session");
 
@@ -45,89 +45,45 @@ const upload = multer({
 });
 
 
-app.get("/",(req, res)=>{
-    res.sendFile(__dirname + "/index.html");
-});
+const PublicRouter = require("./routers/publicRoute");
+app.use("/", PublicRouter);
 
-app.get("/joinUs",(req, res)=>{
-    res.sendFile(__dirname + "/joinUs.html");
-});
-
-app.get("/aboutUs", (req, res)=>{
-    res.render("pages/aboutUs");
-})
-app.get("/programs",(req, res)=>{
-    res.render("pages/program");
-})
-app.get("/contact",(req,res)=>{
-    res.render("pages/contact");
-})
-app.get("/representativeForm",(req, res)=>{
-    res.render("pages/representativeForm")
-})
-
-app.get("/test",(req, res)=>{
-    res.render("pages/tests")
-});
 
 app.use(function(req, res, next) {
-    res.status(404).render("pages/404");
+    res.status(404).render("pages/errorPage", {errorTitle:"Page not found", errorSent:"এমন কোনো পৃষ্ঠা নেই"});
 });
 
+
 // handling post request
-app.post("/admin/addTeacher", upload.single("image"),(req, res)=>{
-    var email = req.body.email;
-    var teacherName = req.body.name;
-    var teacherPhone = req.body.phone;
-    var birthdate = req.body.birthdate;
-    var permanentAddress = req.body.permanentAddress;
-    var presentAddress = req.body.presentAddress;
-    var nid = req.body.nid;
-    var institute = req.body.institute;
-    var post = req.body.post;
-    var image = req.file;
+// app.get("/admin/addRepresentative/:id", (req, res)=>{
+    // var email = req.body.email;
+    // var teacherName = req.body.name;
+    // var teacherPhone = req.body.phone;
+    // var birthdate = req.body.birthdate;
+    // var permanentAddress = req.body.permanentAddress;
+    // var presentAddress = req.body.presentAddress;
+    // var nid = req.body.nid;
+    // var institute = req.body.institute;
+    // var post = req.body.post;
+    // var image = req.file;
 
-    const teacher = new Teacher({name:teacherName, email, phone:teacherPhone, birthdate, permanentAddress, presentAddress, nid, institute, post, image})
-    Teacher.findOne({email:email}).then((existed)=>{
-        if(existed){
-            res.status(422)
-        }
-        else{
-            teacher.save().then(()=>{
-                res.send("Added")
-            }).catch((error)=>{
-                console.log(error)
-            })
-        }
-    })
-})
+    // const teacher = new Teacher({name:teacherName, email, phone:teacherPhone, birthdate, permanentAddress, presentAddress, nid, institute, post, image})
+    // Teacher.findOne({email:email}).then((existed)=>{
+    //     if(existed){
+    //         res.status(422)
+    //     }
+    //     else{
+    //         teacher.save().then(()=>{
+    //             res.send("Added")
+    //         }).catch((error)=>{
+    //             console.log(error)
+    //         })
+    //     }
 
-app.post("/representativeApplicant", upload.single("image"),(req, res)=>{
-    var applicantName = req.body.name;
-    var email = req.body.email;
-    var applicantPhone = req.body.phone;
-    var birthdate = req.body.birthdate;
-    var permanentAddress = req.body.permanentAddress;
-    var presentAddress = req.body.presentAddress;
-    var nid = req.body.nid;
-    var institute = req.body.institute;
-    var post = req.body.post;
-    var image = req.file;
+    // })
 
-    const teacher = new ApplicantRepresentativeSchema({name:applicantName, email, phone:applicantPhone, birthdate, permanentAddress, presentAddress, nid, institute, post, image})
-    ApplicantRepresentativeSchema.findOne({email:email}).then((existed)=>{
-        if(existed){
-            res.status(422).send("Oppss...Sorry You have tried with an email which is already used!!<a href='/representativeApplicant'>Try again</a>")
-        }
-        else{
-            teacher.save().then(()=>{
-                res.send("Added")
-            }).catch((error)=>{
-                console.log(error)
-            })
-        }
-    })
-})
+
+// })
 
 app.post("/articles4magazine",(req,res)=>{
     let name = req.body.name;

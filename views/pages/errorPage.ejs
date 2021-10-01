@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Muktokishore - There is no page</title>
+        <title>Muktokishore - <%= errorTitle %></title>
         <link rel="stylesheet" href="/static/stylesheets/components.css">
         <link rel="stylesheet" href="/static/stylesheets/pages.css">
         <link href="https://fonts.maateen.me/charu-chandan-3d/font.css" rel="stylesheet">
@@ -12,7 +12,7 @@
     <body>
         <%- include("../components/header", {active: "about"});  -%>
         <div class="main_div">
-            <h1>এমন কোনো পৃষ্ঠা নেই!!!</h1>
+            <h1><%= errorSent %>!!!</h1>
             <a style="color:blue;font-family:'Times New Roman', Times, serif" href="/">Back to home</a>
         </div>
         <%- include("../components/footer");  -%>

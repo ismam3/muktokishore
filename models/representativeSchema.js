@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const teacherSchema = new mongoose.Schema({
+const representativeSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -26,7 +26,9 @@ const teacherSchema = new mongoose.Schema({
     },
     nid:{
         type:String,
-        required:true
+    },
+    birthCertificate:{
+        type:Number
     },
     institute:{
         type:String,
@@ -42,5 +44,5 @@ const teacherSchema = new mongoose.Schema({
     }
 });
 
-const Teacher = mongoose.model("Teacher", teacherSchema);
-module.exports = Teacher;
+const Representative = mongoose.model("representative", representativeSchema);
+module.exports = Representative;
