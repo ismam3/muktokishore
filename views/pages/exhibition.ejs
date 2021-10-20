@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <script src="/static/scripts/a-frame_0_8_2.min.js"></script>
+        <script src="/static/scripts/aframe-extras.min.js"></script>
+        <script src="/static/scripts/aframe-physics-system.min.js"></script>
+        <script>
+            function mouseEnter(key_code){
+                var keyDownEvent = new KeyboardEvent("keydown",{
+                    keyCode:key_code
+                })
+                window.dispatchEvent(keyDownEvent)
+            }
+            function mouseLeave(key_code){
+                var keyUpEvent = new KeyboardEvent("keyup",{
+                    keyCode:key_code
+                })
+                window.dispatchEvent(keyUpEvent)
+            }
+          </script>
+          <link rel="shortcut icon" href="./Bncc_logo.png" type="image/x-icon">
+          <link rel="manifest" href="manifest.json">
+        <title>Muktokishor Photo Exhibition</title>
+        <style>
+            .controller{
+                position: fixed;
+                width: 70px;
+                height: 70px;
+                z-index: 3;
+                background: transparent;
+                color: black;
+                font-size: 42px;
+                font-weight: 900;
+                border:1px black inset;
+                border-radius: 25px;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .controller:hover{
+                background: whitesmoke;
+            }
+            #forward{
+                left: calc(50vw - 35px);
+                top: 0;
+            }
+            #left{
+                left: 0;
+                top: calc(50vh - 35px);
+            }
+            #backward{
+                left:calc(50vw - 35px);
+                bottom: 0;
+            }
+            #right{
+                right: 0;
+                top: calc(50vh - 35px);
+            }
+        </style>
+        <meta name="description" content="
+        A exhibition of muktokishore photography contest
+        ">
+    </head>
+    <body style="user-select: none; -webkit-app-region:drag;">
+        
+        <a-scene physics="debug: false">
+            <div class="controller" id="forward" onmouseenter="mouseEnter(87)" onmouseleave="mouseLeave(87)">&uarr;</div>
+            <div class="controller" id="left" onmouseenter="mouseEnter(65)" onmouseleave="mouseLeave(65)">&larr;</div>
+            <div class="controller" id="backward" onmouseenter="mouseEnter(83)" onmouseleave="mouseLeave(83)">&darr;</div>
+            <div class="controller" id="right" onmouseenter="mouseEnter(68)" onmouseleave="mouseLeave(68)">&rarr;</div>
+            <!-- assets -->
+            <a-assets>
+                <img id="grass_texture" src="/static/assets/textures/grass(1).jpg">
+                <img id="sky_texture" src="/static/assets/textures/clear_sky.jpeg">
+                <img id="concrete_texture" src="/static/assets/textures/concrete_texture.jpg">
+                <img id="brick_texture" src="/static/assets/textures/brick_texture.jpg">
+                <img id="white_marbel" src="/static/assets/textures/white_marbel_tiles.jpg">
+                <img id="surface_tile" src="/static/assets/textures/surface-tile.jpg">
+                
+              </a-assets>
+
+
+              <!-- sky -->
+              <a-sky src="#sky_texture"></a-sky>
+              <!-- plane -->
+              <a-plane static-body rotation="-90 0 0" material="src:#grass_texture;repeat:500 500" scale="1000 1000 0" position="0 0 0"></a-plane>
+
+              <!-- walls -->
+              <a-box static-body color="gray" depth="8" height="4" width="6" position="0 2 -5"></a-box>
+              <a-box static-body color="gray" depth="0.5" height="3.5" width="20" position="7 1.75 -3" rotation="0 90 0"></a-box>
+              <a-box static-body color="gray" depth="0.5" height="3.5" width="20" position="-7 1.75 -3" rotation="0 90 0"></a-box>
+              <a-box static-body color="gray" depth="0.5" height="4" width="14.5" position="0 2 -9.5"></a-box>
+              <a-box static-body color="gray" depth="0.5" height="4" width="14.5" position="0 2 7"></a-box>
+
+              <!-- roof -->
+              <a-box src="#concrete_texture" depth="20" height="0.5" width="14" position="0 4.3 0"></a-box>
+              
+              <a-plane src="#white_marbel" height="20" width="14" position="0 0.2 0" rotation="-90 0 0"></a-plane>
+
+
+              <a-entity look-controls kinematic-body="radius: 0.8" wasd-controls position="0 0 4" id="cameraWrapper">
+                <a-entity camera position="0 1.6 0" ></a-entity>
+              </a-entity>
+        </a-scene>
+    </body>
+</html>

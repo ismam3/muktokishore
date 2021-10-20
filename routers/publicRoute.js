@@ -29,6 +29,10 @@ PublicRouter.get("/contact",(req,res)=>{
 })
 PublicRouter.get("/representativeForm",(req, res)=>{
     res.render("pages/representativeForm")
+});
+
+PublicRouter.get("/exhibition",(req,res)=>{
+    res.render("pages/exhibition");
 })
 
 PublicRouter.get("/test",(req, res)=>{
